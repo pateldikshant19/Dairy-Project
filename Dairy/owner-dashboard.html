@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard - Mahant Dairy</title>
+    <link rel="stylesheet" href="owner-styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Mahant Dairy - Owner Panel</h1>
+            </div>
+            <div class="nav-right">
+                <span>Welcome, Jay Atulbhai Patel</span>
+                <button id="logoutBtn">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Customers</h3>
+                    <div class="stat-number" id="totalCustomers">245</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Orders</h3>
+                    <div class="stat-number" id="activeOrders">18</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Daily Revenue</h3>
+                    <div class="stat-number" id="dailyRevenue">₹12,450</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Milk Production</h3>
+                    <div class="stat-number" id="milkProduction">850L</div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="section">
+                    <h2>Customer Management</h2>
+                    <div class="customer-list">
+                        <div class="customer-item">
+                            <span>Priya Sharma - +91 98765 12345</span>
+                            <span class="status active">Active</span>
+                        </div>
+                        <div class="customer-item">
+                            <span>Amit Kumar - +91 87654 32109</span>
+                            <span class="status active">Active</span>
+                        </div>
+                        <div class="customer-item">
+                            <span>Sunita Devi - +91 76543 21098</span>
+                            <span class="status pending">Pending</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Recent Orders</h2>
+                    <div class="order-list">
+                        <div class="order-item">
+                            <span>Order #001 - Priya Sharma</span>
+                            <span>2L Milk - ₹120</span>
+                            <span class="status delivered">Delivered</span>
+                        </div>
+                        <div class="order-item">
+                            <span>Order #002 - Amit Kumar</span>
+                            <span>1L Milk - ₹60</span>
+                            <span class="status pending">Pending</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Reviews Management</h2>
+                    <div class="review-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <span>Priya Sharma</span>
+                                <span class="stars">★★★★★</span>
+                            </div>
+                            <p>"Best quality milk in the area. Always fresh and delivered on time!"</p>
+                            <button class="approve-btn">Approve</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Business Settings</h2>
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label>Phone Number:</label>
+                            <input type="text" value="+91 XXXXXXXXXX" id="phoneInput">
+                        </div>
+                        <div class="form-group">
+                            <label>Farm Address:</label>
+                            <input type="text" value="Gaaj, Vadodara" id="addressInput">
+                        </div>
+                        <div class="form-group">
+                            <label>Milk Price (per L):</label>
+                            <input type="number" value="60" id="priceInput">
+                        </div>
+                        <button class="save-btn">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="owner-script.js"></script>
+</body>
+</html>

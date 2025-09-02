@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Bill - Mahant Dairy</title>
+    <link rel="stylesheet" href="bill-styles.css">
+</head>
+<body>
+    <div class="bill-container">
+        <div class="bill-header">
+            <div class="farm-details">
+                <h1>Mahant Dairy</h1>
+                <p data-translate="tagline">Fresh & Pure Since 1995</p>
+                <p data-translate="farmAddress">Farm Address: Gaaj, Vadodara</p>
+                <p>Phone: +91 XXXXXXXXXX</p>
+            </div>
+            <div class="bill-info">
+                <select id="billLanguageSelect" class="bill-language-select">
+                    <option value="en">English</option>
+                    <option value="hi">हिंदी</option>
+                    <option value="gu">ગુજરાતી</option>
+                </select>
+                <h2 data-translate="monthlyBill">Monthly Bill</h2>
+                <p>Bill No: MD-2024-001</p>
+                <p data-translate="date">Date: <span id="billDate"></span></p>
+            </div>
+        </div>
+
+        <div class="greeting">
+            <h3 data-translate="greeting">Dear Valued Customer,</h3>
+            <p data-translate="greetingMsg">Thank you for choosing Mahant Dairy for your daily milk needs. We appreciate your trust in our quality products.</p>
+        </div>
+
+        <div class="customer-details">
+            <h3>Customer Information</h3>
+            <div class="customer-info">
+                <p><strong>Name:</strong> <span id="customerName">Priya Sharma</span></p>
+                <p><strong>Address:</strong> <span id="customerAddress">123 Main Street, Vadodara</span></p>
+                <p><strong>Phone:</strong> <span id="customerPhone">+91 98765 12345</span></p>
+                <p><strong>Billing Period:</strong> <span id="billingPeriod">January 2024</span></p>
+            </div>
+        </div>
+
+        <div class="bill-summary">
+            <h3>Monthly Summary</h3>
+            <table class="summary-table">
+                <tr>
+                    <td>Total Days in Month:</td>
+                    <td><span id="totalDays">31</span></td>
+                </tr>
+                <tr>
+                    <td>Days Milk Taken:</td>
+                    <td><span id="daysTaken">28</span></td>
+                </tr>
+                <tr>
+                    <td>Days Not Taken:</td>
+                    <td><span id="daysNotTaken">3</span></td>
+                </tr>
+                <tr>
+                    <td>Extra Milk Days:</td>
+                    <td><span id="extraDays">2</span></td>
+                </tr>
+                <tr>
+                    <td>Regular Quantity (per day):</td>
+                    <td><span id="regularQty">2L</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="bill-calculation">
+            <h3>Bill Calculation</h3>
+            <table class="calc-table">
+                <tr>
+                    <td>Regular Milk (28 days × 2L × ₹60):</td>
+                    <td>₹<span id="regularAmount">3,360</span></td>
+                </tr>
+                <tr>
+                    <td>Extra Milk (2 days × 1L × ₹60):</td>
+                    <td>₹<span id="extraAmount">120</span></td>
+                </tr>
+                <tr>
+                    <td>Subtotal:</td>
+                    <td>₹<span id="subtotal">3,480</span></td>
+                </tr>
+                <tr class="discount-row">
+                    <td>Discount (Loyal Customer - 5%):</td>
+                    <td>-₹<span id="discount">174</span></td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>Total Amount:</strong></td>
+                    <td><strong>₹<span id="totalAmount">3,306</span></strong></td>
+                </tr>
+                <tr>
+                    <td>Previous Pending:</td>
+                    <td>₹<span id="pendingAmount">150</span></td>
+                </tr>
+                <tr class="final-row">
+                    <td><strong>Final Amount Due:</strong></td>
+                    <td><strong>₹<span id="finalAmount">3,456</span></strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="payment-section">
+            <h3>Payment Options</h3>
+            <div class="payment-buttons">
+                <button class="pay-btn cash" onclick="payByCash()">Pay by Cash</button>
+                <button class="pay-btn online" onclick="payOnline()">Pay Online</button>
+            </div>
+            
+            <div id="onlinePayment" class="online-payment" style="display:none;">
+                <h4>Online Payment Details</h4>
+                <div class="payment-methods">
+                    <button class="method-btn" onclick="payByUPI()">UPI Payment</button>
+                    <button class="method-btn" onclick="payByCard()">Card Payment</button>
+                </div>
+                <div class="upi-details" id="upiDetails" style="display:none;">
+                    <p><strong>UPI ID:</strong> mahantdairy@paytm</p>
+                    <p><strong>QR Code:</strong> [QR Code would be here]</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-message">
+            <p>Thank you for your continued patronage. We look forward to serving you with the freshest milk and dairy products.</p>
+            <p><em>For any queries, please contact us at +91 XXXXXXXXXX</em></p>
+            <p><strong>Mahant Dairy - Your Trusted Dairy Partner</strong></p>
+        </div>
+
+        <div class="print-section">
+            <button class="print-btn" onclick="window.print()">Print Bill</button>
+        </div>
+    </div>
+
+    <script src="bill-script.js"></script>
+</body>
+</html>

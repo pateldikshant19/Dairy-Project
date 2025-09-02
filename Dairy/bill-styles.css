@@ -1,0 +1,643 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f5f5f5;
+    padding: 2rem;
+}
+
+.bill-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.bill-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    border-bottom: 3px solid #FF8C00;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.farm-details h1 {
+    color: #4169E1;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.farm-details p {
+    color: #666;
+    margin-bottom: 0.3rem;
+}
+
+.bill-info {
+    text-align: right;
+}
+
+.bill-info h2 {
+    color: #FF8C00;
+    margin-bottom: 0.5rem;
+}
+
+.greeting {
+    background: linear-gradient(135deg, rgba(65, 105, 225, 0.1), rgba(255, 140, 0, 0.1));
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #4169E1;
+}
+
+.greeting h3 {
+    color: #4169E1;
+    margin-bottom: 0.5rem;
+}
+
+.customer-details, .bill-summary, .bill-calculation {
+    margin-bottom: 2rem;
+}
+
+.customer-details h3, .bill-summary h3, .bill-calculation h3 {
+    color: #4169E1;
+    border-bottom: 2px solid #FF8C00;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.customer-info p {
+    margin-bottom: 0.5rem;
+    padding: 0.3rem 0;
+}
+
+.summary-table, .calc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.summary-table td, .calc-table td {
+    padding: 0.8rem;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-table td:first-child, .calc-table td:first-child {
+    font-weight: bold;
+    color: #333;
+}
+
+.summary-table td:last-child, .calc-table td:last-child {
+    text-align: right;
+    color: #4169E1;
+    font-weight: bold;
+}
+
+.discount-row {
+    background: rgba(40, 167, 69, 0.1);
+}
+
+.discount-row td {
+    color: #28a745 !important;
+}
+
+.total-row {
+    background: rgba(65, 105, 225, 0.1);
+    font-size: 1.1rem;
+}
+
+.final-row {
+    background: rgba(255, 140, 0, 0.2);
+    font-size: 1.2rem;
+    border-top: 2px solid #FF8C00;
+}
+
+.payment-section {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.payment-section h3 {
+    color: #4169E1;
+    margin-bottom: 1rem;
+}
+
+.payment-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pay-btn {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pay-btn.cash {
+    background: #28a745;
+    color: white;
+}
+
+.pay-btn.online {
+    background: linear-gradient(135deg, #4169E1, #FF8C00);
+    color: white;
+}
+
+.pay-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.online-payment {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.method-btn {
+    padding: 0.8rem 1.5rem;
+    background: #4169E1;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upi-details {
+    background: #e3f2fd;
+    padding: 1rem;
+    border-radius: 5px;
+    border-left: 4px solid #2196f3;
+}
+
+.footer-message {
+    text-align: center;
+    background: rgba(65, 105, 225, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(65, 105, 225, 0.2);
+}
+
+.footer-message p {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.footer-message p:last-child {
+    color: #4169E1;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.print-section {
+    text-align: center;
+}
+
+.print-btn {
+    background: linear-gradient(135deg, #4169E1, #FF8C00);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.bill-language-select {
+    background: rgba(65, 105, 225, 0.1);
+    border: 1px solid #4169E1;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+    
+    .payment-section, .print-section {
+        display: none;
+    }
+}
+
+/* Dashboard Styles */
+.user-type-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.user-type-modal .modal-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.user-type-buttons {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.user-type-btn {
+    padding: 1.5rem 2rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 180px;
+}
+
+.owner-btn {
+    background: linear-gradient(135deg, #4169E1, #FF8C00);
+    color: white;
+}
+
+.customer-btn {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+}
+
+.user-type-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #4169E1, #FF8C00);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.switch-btn, .export-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.switch-btn:hover, .export-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.owner-controls {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.control-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.control-section h3 {
+    color: #4169E1;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #FF8C00;
+    padding-bottom: 0.5rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-grid input {
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-grid input:focus {
+    outline: none;
+    border-color: #4169E1;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.generate-btn, .clear-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.generate-btn {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+}
+
+.clear-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.generate-btn:hover, .clear-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.settings-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.setting-item label {
+    font-weight: bold;
+    color: #333;
+}
+
+.setting-item input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 120px;
+}
+
+.bills-history {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.bills-history h3 {
+    color: #4169E1;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #FF8C00;
+    padding-bottom: 0.5rem;
+}
+
+.bills-table-container {
+    overflow-x: auto;
+}
+
+.bills-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.bills-table th, .bills-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.bills-table th {
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #4169E1;
+}
+
+.bills-table tr:hover {
+    background: #f8f9fa;
+}
+
+.status-paid {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.action-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.view-btn {
+    background: #4169E1;
+    color: white;
+}
+
+.edit-btn {
+    background: #ffc107;
+    color: black;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.customer-bills {
+    display: grid;
+    gap: 2rem;
+}
+
+.current-bill-section, .bill-history-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.current-bill-section h3, .bill-history-section h3 {
+    color: #4169E1;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #FF8C00;
+    padding-bottom: 0.5rem;
+}
+
+.bill-display {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #4169E1;
+}
+
+.customer-bills-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.customer-bill-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid #28a745;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.bill-modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.modal-actions button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.save-btn {
+    background: #28a745;
+    color: white;
+}
+
+.cancel-btn {
+    background: #6c757d;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .bill-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .payment-buttons {
+        flex-direction: column;
+    }
+    
+    .payment-methods {
+        flex-direction: column;
+    }
+    
+    .owner-controls {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-type-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .dashboard-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}

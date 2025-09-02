@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Dashboard - Mahant Dairy</title>
+    <link rel="stylesheet" href="bill-styles.css">
+</head>
+<body>
+    <!-- User Type Selection -->
+    <div id="userTypeSelection" class="user-type-modal">
+        <div class="modal-content">
+            <h2>Select Dashboard Type</h2>
+            <div class="user-type-buttons">
+                <button onclick="showOwnerDashboard()" class="user-type-btn owner-btn">Owner Dashboard</button>
+                <button onclick="showCustomerDashboard()" class="user-type-btn customer-btn">Customer Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Owner Dashboard -->
+    <div id="ownerDashboard" class="dashboard-container" style="display: none;">
+        <header class="dashboard-header">
+            <h1>Owner Billing Dashboard</h1>
+            <div class="header-actions">
+                <button onclick="showUserTypeSelection()" class="switch-btn">Switch View</button>
+                <button onclick="exportBills()" class="export-btn">Export Bills</button>
+            </div>
+        </header>
+
+        <div class="owner-controls">
+            <div class="control-section">
+                <h3>Create New Bill</h3>
+                <div class="form-grid">
+                    <input type="text" id="customerName" placeholder="Customer Name" required>
+                    <input type="tel" id="customerPhone" placeholder="Phone Number" required>
+                    <input type="text" id="customerAddress" placeholder="Address">
+                    <input type="number" id="milkQuantity" placeholder="Milk Quantity (L)" step="0.5" required>
+                    <input type="number" id="milkPrice" placeholder="Price per L" value="60" required>
+                    <input type="number" id="totalDays" placeholder="Total Days" required>
+                    <input type="number" id="daysTaken" placeholder="Days Taken" required>
+                    <input type="number" id="extraDays" placeholder="Extra Days" value="0">
+                    <input type="number" id="discountPercent" placeholder="Discount %" value="5">
+                    <input type="number" id="pendingAmount" placeholder="Pending Amount" value="0">
+                </div>
+                <div class="form-actions">
+                    <button onclick="generateBill()" class="generate-btn">Generate Bill</button>
+                    <button onclick="clearForm()" class="clear-btn">Clear Form</button>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h3>Quick Settings</h3>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label>Default Milk Price (₹/L):</label>
+                        <input type="number" id="defaultPrice" value="60" onchange="updateDefaultPrice()">
+                    </div>
+                    <div class="setting-item">
+                        <label>Default Discount (%):</label>
+                        <input type="number" id="defaultDiscount" value="5" onchange="updateDefaultDiscount()">
+                    </div>
+                    <div class="setting-item">
+                        <label>Farm Name:</label>
+                        <input type="text" id="farmName" value="Mahant Dairy" onchange="updateFarmName()">
+                    </div>
+                    <div class="setting-item">
+                        <label>Farm Address:</label>
+                        <input type="text" id="farmAddress" value="Gaaj, Vadodara" onchange="updateFarmAddress()">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bills-history">
+            <h3>Recent Bills</h3>
+            <div class="bills-table-container">
+                <table class="bills-table">
+                    <thead>
+                        <tr>
+                            <th>Bill No.</th>
+                            <th>Customer</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="billsTableBody">
+                        <!-- Bills will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Dashboard -->
+    <div id="customerDashboard" class="dashboard-container" style="display: none;">
+        <header class="dashboard-header">
+            <h1>Customer Bill Dashboard</h1>
+            <button onclick="showUserTypeSelection()" class="switch-btn">Switch View</button>
+        </header>
+
+        <div class="customer-bills">
+            <div class="current-bill-section">
+                <h3>Current Month Bill</h3>
+                <div id="currentBillDisplay" class="bill-display">
+                    <!-- Current bill will be displayed here -->
+                </div>
+            </div>
+
+            <div class="bill-history-section">
+                <h3>Bill History</h3>
+                <div class="customer-bills-list" id="customerBillsList">
+                    <!-- Customer bills history will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bill Preview Modal -->
+    <div id="billPreviewModal" class="modal" style="display: none;">
+        <div class="modal-content bill-modal">
+            <span class="close" onclick="closeBillPreview()">&times;</span>
+            <div id="billPreviewContent">
+                <!-- Generated bill will be displayed here -->
+            </div>
+            <div class="modal-actions">
+                <button onclick="printBill()" class="print-btn">Print Bill</button>
+                <button onclick="saveBill()" class="save-btn">Save Bill</button>
+                <button onclick="closeBillPreview()" class="cancel-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="bill-script.js"></script>
+</body>
+</html>

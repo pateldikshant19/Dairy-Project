@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahant Dairy - Fresh & Pure</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Mahant Dairy</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><select id="languageSelect" class="language-select">
+                    <option value="en">English</option>
+                    <option value="hi">हिंदी</option>
+                    <option value="gu">ગુજરાતી</option>
+                </select></li>
+                <li><button id="loginBtn" class="login-btn">Login</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Fresh & Pure Dairy Products</h2>
+                <p>Delivering quality milk and dairy products since 2022</p>
+                <div class="live-counter">
+                    <h3>Live Customer Count: <span id="customerCount">0</span></h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Mahant Dairy</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Mahant Dairy has been serving fresh, pure, and nutritious dairy products for over 25 years. We pride ourselves on maintaining the highest quality standards and ensuring customer satisfaction.</p>
+                        <ul>
+                            <li data-translate="feature1">100% Pure & Fresh Milk</li>
+                            <li data-translate="feature2">Organic Dairy Products</li>
+                            <li data-translate="feature3">Home Delivery Available</li>
+                            <li data-translate="feature4">Quality Assured</li>
+                        </ul>
+                    </div>
+                    <div class="owner-details">
+                        <h3>Owner Details</h3>
+                        <div class="owner-info">
+                            <p><strong data-translate="name">Name:</strong> Jay Atulbhai Patel</p>
+                            <p><strong data-translate="phone">Phone:</strong> +91 XXXXXXXXXX</p>
+                            <p><strong data-translate="address">Farm Address:</strong> Gaaj,Vadodara</p>
+                            <p><strong data-translate="establish">Establish:</strong>03/03/2022</p> 
+                            <p><strong data-translate="experience">Experience:</strong> <span data-translate="expYears">3+ Years in Dairy Business</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2 data-translate="gallery">Our Gallery</h2>
+                <div class="slideshow-container">
+                    <div class="slide active">
+                        <img src="image/sundari.jpg" alt="Dairy Farm">
+                    </div>
+                    <div class="slide">
+                        <img src="image/p-2.jpg" alt="Dairy Farm">
+                    </div>
+                    <div class="slide">
+                        <img src="image/WhatsApp Image 2025-06-30 at 22.22.41_09399c92.jpg" alt="Dairy Farm">
+                    </div>
+                    <div class="slide">
+                        <img src="image/WhatsApp Image 2025-06-30 at 22.22.41_2c4c8e37.jpg" alt="Dairy Farm">
+                    </div>
+                    <p data-translate="dairyFarm">Our Dairy Farm</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="reviews">
+            <div class="container">
+                <h2 data-translate="reviews">Customer Reviews</h2>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p data-translate="review1">"Best quality milk in the area. Always fresh and delivered on time!"</p>
+                        <h4>- Priya Sharma</h4>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">★★★★★</div>
+                        <p data-translate="review2">"Mahant Dairy has been our family's choice for 2.5 years. Excellent service!"</p>
+                        <h4>- Amit Kumar</h4>
+                    </div>
+                    <div class="review-card">
+                        <div class="stars">★★★★☆</div>
+                        <p data-translate="review3">"Great quality products and reasonable prices. Highly recommended!"</p>
+                        <h4>- Sunita Devi</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 data-translate="contact">Contact Us</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3 data-translate="phone">Phone</h3>
+                        <p>+91 XXXXXXXXXX</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 data-translate="address">Address</h3>
+                        <p>GAAJ<br>VADODARA</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3 data-translate="deliveryHours">Delivery Hours</h3>
+                        <p data-translate="timings">Morning: 6:00 AM - 9:00 AM<br>Evening: 5:00 PM - 8:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <p class="signup-link">New customer? <a href="#" id="signupLink">Sign up here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Mahant Dairy. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
